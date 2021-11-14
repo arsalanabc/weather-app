@@ -2,7 +2,7 @@ import ApiWrapper from '../src/ApiWrapper';
 import WeatherApp from '../src/WeatherApp';
 
 describe('Weather App', () => {
-  const apiWrapper: ApiWrapper = new ApiWrapper();
+  const apiWrapper: ApiWrapper = new ApiWrapper('asd', 'sd');
   const weatherByCitySpy = jest.spyOn(apiWrapper, 'weatherByCity');
   const weatherByZipSpy = jest.spyOn(apiWrapper, 'weatherByZip');
   const weatherByGeoSpy = jest.spyOn(apiWrapper, 'weatherByCoordinates');
