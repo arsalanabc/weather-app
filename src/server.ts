@@ -2,12 +2,13 @@ import * as express from 'express';
 import ApiWrapper from './ApiWrapper';
 import WeatherApp from './WeatherApp';
 import * as fs from 'fs';
+require('dotenv').config();
 const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 const port = 3000;
 const API_URL = `https://api.openweathermap.org/data/2.5/weather`;
-const API_KEY = `cf002751564a4c78f5f7ed479f1b9ba3`;
+const API_KEY = process.env.API_KEY;
 
 const apiWrapper = new ApiWrapper(API_URL, API_KEY);
 const wApp = new WeatherApp(apiWrapper);
