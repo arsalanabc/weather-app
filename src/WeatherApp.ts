@@ -12,16 +12,16 @@ class WeatherApp implements IWeatherApp {
   constructor(apiWrapper: ApiWrapper) {
     this.apiWrapper = apiWrapper;
   }
-  getWeatherByCity(cityName: string) {
-    return this.apiWrapper.weatherByCity(cityName);
+  async getWeatherByCity(cityName: string) {
+    return await this.apiWrapper.weatherByCity(cityName);
   }
 
-  getWeatherByZipCode(zipCode: string) {
-    return this.apiWrapper.weatherByZip(zipCode);
+  async getWeatherByZipCode(zipCode: string) {
+    return await this.apiWrapper.weatherByZip(zipCode);
   }
 
-  getWeatherByCoordinates(lat: number, long: number) {
-    return this.apiWrapper.weatherByCoordinates(lat, long);
+  async getWeatherByCoordinates(lat: number, long: number) {
+    return await this.apiWrapper.weatherByCoordinates(lat, long);
   }
 }
 
