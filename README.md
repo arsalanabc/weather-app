@@ -4,10 +4,15 @@
 
 ### Before starting
 
+- Node 14 or higher is required
 - Add the API_KEY in .env file
 - API_KEY also required in the apiwrapper tests.
 - Server runs on `http://localhost:3000`
 - Api documentation `http://localhost:3000/api-docs`
+
+### Install dependencies
+
+- `npm install`
 
 ### Run locally for dev
 
