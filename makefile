@@ -1,7 +1,7 @@
 test:
 	npm test
 
-build-image:
+build-image:test
 	docker build -t weather_app:latest .
 
 up:
