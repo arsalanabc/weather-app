@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Weather APP API",
+    "description": "Weather Application API"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/": {
+      "get": {
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "required": false,
+            "description": "Provide the city name",
+            "type": "string"
+          },
+          {
+            "name": "zip",
+            "in": "query",
+            "required": false,
+            "description": "Provide the city zip code",
+            "type": "string"
+          },
+          {
+            "name": "lat&lon",
+            "in": "query",
+            "required": false,
+            "description": "Provide the geo coordinates",
+            "type": "string"
+          }
+        ],
+        "tags": ["home"],
+        "summary": "default route",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Weather"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Weather": {
+      "required": ["coord", "weather", "name"],
+      "properties": {
+        "coord": {
+          "properties": {
+            "lon": {
+              "type": "integer"
+            },
+            "lat": {
+              "type": "integer"
+            }
+          }
+        },
+        "weather": {
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "main": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "icon": {
+              "type": "string"
+            }
+          }
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

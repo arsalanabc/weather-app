@@ -1,6 +1,8 @@
 import * as express from 'express';
 import ApiWrapper from './ApiWrapper';
 import WeatherApp from './WeatherApp';
+import * as fs from 'fs';
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 const port = 3000;
@@ -9,6 +11,10 @@ const API_KEY = `cf002751564a4c78f5f7ed479f1b9ba3`;
 
 const apiWrapper = new ApiWrapper(API_URL, API_KEY);
 const wApp = new WeatherApp(apiWrapper);
+
+const swaggerDocument = JSON.parse(fs.readFileSync('./swagger.json', 'utf-8'));
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get('/', async (req, res) => {
   const { query } = req;
