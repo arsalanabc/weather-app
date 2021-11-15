@@ -1,9 +1,9 @@
 import ApiWrapper from './ApiWrapper';
 
 interface IWeatherApp {
-  getWeatherByCity(cityName: string): {};
-  getWeatherByZipCode(zipCode: string): {};
-  getWeatherByCoordinates(lat: number, long: number): {};
+  getWeatherByCity(cityName: string): Promise<any>;
+  getWeatherByZipCode(zipCode: string): Promise<any>;
+  getWeatherByCoordinates(lat: number, long: number): Promise<any>;
 }
 
 class WeatherApp implements IWeatherApp {
